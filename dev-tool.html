@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日期 & Cron 工具箱</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        body {
+            background: #f5f7fb;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 24px;
+            padding: 2rem 2rem 2.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        h1 {
+            margin-top: 0;
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: #1e293b;
+            border-bottom: 2px solid #e9edf4;
+            padding-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1.5rem 0 2rem;
+            border-bottom: 2px solid #e9edf4;
+            padding-bottom: 0.5rem;
+        }
+        .tab-btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #64748b;
+            cursor: pointer;
+            border-radius: 40px;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover {
+            background: #f1f5f9;
+        }
+        .tab-btn.active {
+            background: #1e293b;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            animation: fade 0.2s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fade { from { opacity:0.4; } to { opacity:1; } }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: center;
+        }
+        .row label {
+            min-width: 80px;
+            font-weight: 500;
+            color: #334155;
+        }
+        .row input, .row select {
+            flex: 1;
+            min-width: 180px;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #d1d9e6;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            background: white;
+            transition: 0.2s;
+        }
+        .row input:focus, .row select:focus {
+            outline: none;
+            border-color: #1e293b;
+            box-shadow: 0 0 0 3px rgba(30,41,59,0.1);
+        }
+        .btn {
+            background: #1e293b;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        .btn:hover {
+            background: #0f172a;
+            transform: scale(0.97);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #1e293b;
+            border: 1px solid #d1d9e6;
+        }
+        .btn-outline:hover {
+            background: #f1f5f9;
+        }
+        .result-box {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1rem 1.4rem;
+            margin-top: 1rem;
+            border-left: 4px solid #1e293b;
+            font-family: 'JetBrains Mono', monospace;
+            word-break: break-all;
+            min-height: 3rem;
+        }
+        .result-box .label {
+            font-family: system-ui;
+            font-weight: 500;
+            color: #475569;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .result-box .value {
+            font-size: 1.1rem;
+            margin-top: 4px;
+        }
+        .cron-preview {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin-top: 0.8rem;
+        }
+        .cron-preview ul {
+            margin: 0.5rem 0 0;
+            padding-left: 1.2rem;
+        }
+        .cron-preview li {
+            padding: 0.2rem 0;
+            font-family: monospace;
+        }
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e3a8a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .error {
+            color: #b91c1c;
+            background: #fee2e2;
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media (max-width: 600px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .row { flex-direction: column; align-items: stretch; }
+            .row label { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🧰 开发者工具箱</h1>
+
+    <!-- 选项卡 -->
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="date">📅 日期转换</button>
+        <button class="tab-btn" data-tab="cron">⏳ Cron 验证 & 预览</button>
+    </div>
+
+    <!-- ===================== 日期转换 ===================== -->
+    <div id="tab-date" class="tab-content active">
+        <div class="grid-2">
+            <!-- 左：时间戳 → 日期 -->
+            <div>
+                <div class="row">
+                    <label>时间戳</label>
+                    <input type="text" id="tsInput" placeholder="秒 或 毫秒" value="1693488000">
+                </div>
+                <div class="row">
+                    <label>单位</label>
+                    <select id="tsUnit">
+                        <option value="seconds">秒 (10位)</option>
+                        <option value="milliseconds">毫秒 (13位)</option>
+                    </select>
+                </div>
+                <button class="btn" id="tsToDateBtn">→ 转为日期</button>
+                <div class="result-box" id="tsResult">
+                    <div class="label">转换结果</div>
+                    <div class="value">等待转换</div>
+                </div>
+            </div>
+
+            <!-- 右：日期 → 时间戳 -->
+            <div>
+                <div class="row">
+                    <label>日期时间</label>
+                    <input type="text" id="dateInput" placeholder="YYYY-MM-DD HH:mm:ss" value="2026-09-07 14:30:00">
+                </div>
+                <button class="btn" id="dateToTsBtn">→ 转为时间戳</button>
+                <div class="result-box" id="dateResult">
+                    <div class="label">转换结果</div>
+                    <div class="value">等待转换</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数字日期 ↔ 标准日期 -->
+        <hr style="margin: 2rem 0; border-color: #e9edf4;">
+        <div class="grid-2">
+            <div>
+                <div class="row">
+                    <label>数字日期</label>
+                    <input type="text" id="numDateInput" placeholder="如 20260907" value="20260907">
+                </div>
+                <button class="btn" id="numToDateBtn">→ 转标准日期</button>
+                <div class="result-box" id="numDateResult">
+                    <div class="label">标准日期</div>
+                    <div class="value">-</div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <label>标准日期</label>
+                    <input type="text" id="stdDateInput" placeholder="如 2026-09-07" value="2026-09-07">
+                </div>
+                <button class="btn" id="dateToNumBtn">→ 转数字日期</button>
+                <div class="result-box" id="stdDateResult">
+                    <div class="label">数字日期</div>
+                    <div class="value">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== Cron 验证 & 执行预览 ===================== -->
+    <div id="tab-cron" class="tab-content">
+        <div class="row">
+            <label>Cron 表达式</label>
+            <input type="text" id="cronInput" placeholder="分 时 日 月 周" value="30 14 * * *">
+        </div>
+        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+            <button class="btn" id="cronValidateBtn">✅ 验证 & 预览</button>
+            <button class="btn btn-outline" id="cronExampleBtn">📋 填充示例</button>
+        </div>
+        <div id="cronResult">
+            <div class="result-box" style="border-left-color: #64748b;">
+                <div class="label">解析结果</div>
+                <div id="cronDescription" class="value" style="font-family: system-ui;">等待验证</div>
+            </div>
+            <div class="cron-preview" id="cronFutureList">
+                <strong>📅 未来 5 次执行时间</strong>
+                <ul><li>—</li></ul>
+            </div>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.85rem; color: #64748b;">
+            ⚙️ 支持格式：分 时 日 月 周（星期 0-6 或 SUN-SAT，0 和 7 都代表周日）
+        </div>
+    </div>
+</div>
+
+<script>
+// ======================= 选项卡切换 =======================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const target = this.dataset.tab;
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.getElementById('tab-' + target).classList.add('active');
+    });
+});
+
+// ======================= 日期转换模块 =======================
+// 时间戳 → 日期
+document.getElementById('tsToDateBtn').addEventListener('click', function() {
+    const input = document.getElementById('tsInput').value.trim();
+    const unit = document.getElementById('tsUnit').value;
+    if (!input) {
+        document.getElementById('tsResult').querySelector('.value').textContent = '请输入时间戳';
+        return;
+    }
+    let ts = Number(input);
+    if (isNaN(ts)) {
+        document.getElementById('tsResult').querySelector('.value').textContent = '❌ 无效数字';
+        return;
+    }
+    if (unit === 'seconds') ts = ts * 1000;
+    const date = new Date(ts);
+    if (isNaN(date.getTime())) {
+        document.getElementById('tsResult').querySelector('.value').textContent = '❌ 超出合法范围';
+        return;
+    }
+    const fmt = date.toLocaleString('zh-CN', { hour12: false });
+    document.getElementById('tsResult').querySelector('.value').textContent = fmt + ' (本地时间)';
+});
+
+// 日期 → 时间戳
+document.getElementById('dateToTsBtn').addEventListener('click', function() {
+    const input = document.getElementById('dateInput').value.trim();
+    if (!input) {
+        document.getElementById('dateResult').querySelector('.value').textContent = '请输入日期时间';
+        return;
+    }
+    let d = new Date(input);
+    if (isNaN(d.getTime())) {
+        // 尝试自动补全秒
+        if (!input.includes(':')) {
+            d = new Date(input + ' 00:00:00');
+        } else if (input.split(':').length === 2) {
+            d = new Date(input + ':00');
+        }
+    }
+    if (isNaN(d.getTime())) {
+        document.getElementById('dateResult').querySelector('.value').textContent = '❌ 无法解析，格式示例: 2026-09-07 14:30:00';
+        return;
+    }
+    const ms = d.getTime();
+    const sec = Math.floor(ms / 1000);
+    document.getElementById('dateResult').querySelector('.value').textContent = `秒: ${sec}  |  毫秒: ${ms}`;
+});
+
+// 数字日期 → 标准日期
+document.getElementById('numToDateBtn').addEventListener('click', function() {
+    const input = document.getElementById('numDateInput').value.trim();
+    if (!/^\d{8}$/.test(input)) {
+        document.getElementById('numDateResult').querySelector('.value').textContent = '❌ 请输入8位数字，如 20260907';
+        return;
+    }
+    const y = input.substring(0,4), m = input.substring(4,6), d = input.substring(6,8);
+    const date = new Date(`${y}-${m}-${d}`);
+    if (isNaN(date.getTime())) {
+        document.getElementById('numDateResult').querySelector('.value').textContent = '❌ 无效日期';
+        return;
+    }
+    document.getElementById('numDateResult').querySelector('.value').textContent = `${y}-${m}-${d}`;
+});
+
+// 标准日期 → 数字日期
+document.getElementById('dateToNumBtn').addEventListener('click', function() {
+    const input = document.getElementById('stdDateInput').value.trim();
+    const d = new Date(input);
+    if (isNaN(d.getTime())) {
+        document.getElementById('stdDateResult').querySelector('.value').textContent = '❌ 无效日期，请用 YYYY-MM-DD';
+        return;
+    }
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    document.getElementById('stdDateResult').querySelector('.value').textContent = `${y}${m}${day}`;
+});
+
+// ======================= Cron 验证与预览模块 =======================
+// 简单的 cron 解析器（仅支持 5 段：分 时 日 月 周）
+function parseCron(expr) {
+    const parts = expr.trim().split(/\s+/);
+    if (parts.length !== 5) {
+        return { valid: false, msg: '必须为 5 段（分 时 日 月 周）' };
+    }
+    const fields = parts.map(p => p.trim());
+    // 星期 0-6 或 SUN-SAT，我们统一转为 0-6 (0=周日)
+    // 先简单校验每个字段是否合法（允许 * 和数字/逗号/斜杠等）
+    const patterns = [
+        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*)$/, // 分
+        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*)$/, // 时
+        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*)$/, // 日
+        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*)$/, // 月
+        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*|SUN|MON|TUE|WED|THU|FRI|SAT)$/i // 周
+    ];
+    for (let i = 0; i < 5; i++) {
+        if (!patterns[i].test(fields[i])) {
+            return { valid: false, msg: `第 ${i+1} 段 "${fields[i]}" 不合法` };
+        }
+    }
+    // 尝试将星期中的英文转为数字
+    const weekMap = { sun:0, mon:1, tue:2, wed:3, thu:4, fri:5, sat:6 };
+    let weekPart = fields[4];
+    if (/[A-Z]/i.test(weekPart)) {
+        // 简单处理：如果整个字段是英文缩写
+        const lower = weekPart.toLowerCase();
+        if (weekMap.hasOwnProperty(lower)) {
+            weekPart = String(weekMap[lower]);
+        } else {
+            return { valid: false, msg: '不支持的星期缩写，请使用 0-6 或 SUN-SAT' };
+        }
+    }
+    // 重新组合
+    const cleaned = [fields[0], fields[1], fields[2], fields[3], weekPart];
+    // 生成可读描述（简易）
+    let desc = '';
+    const m = cleaned[0], h = cleaned[1], day = cleaned[2], mon = cleaned[3], dow = cleaned[4];
+    if (m === '*' && h === '*' && day === '*' && mon === '*' && dow === '*') desc = '每分钟执行';
+    else if (m === '0' && h === '*' && day === '*' && mon === '*' && dow === '*') desc = '每小时的 0 分执行';
+    else if (m === '0' && h !== '*' && !h.includes(',') && !h.includes('-') && !h.includes('/') && day === '*' && mon === '*' && dow === '*') {
+        desc = `每天 ${h.padStart(2,'0')}:00 执行`;
+    } else if (m !== '*' && h !== '*' && day === '*' && mon === '*' && dow === '*') {
+        desc = `每天 ${h.padStart(2,'0')}:${m.padStart(2,'0')} 执行`;
+    } else if (m === '0' && h === '0' && day === '*' && mon === '*' && dow === '*') {
+        desc = '每天 00:00 执行';
+    } else {
+        desc = `自定义表达式 (${expr})`;
+    }
+    return { valid: true, fields: cleaned, description: desc };
+}
+
+// 计算未来 N 次执行时间（基于当前本地时间）
+function getNextCronTimes(cronFields, count = 5) {
+    const [minute, hour, day, month, dow] = cronFields;
+    const now = new Date();
+    const results = [];
+    let current = new Date(now);
+    // 为了防止死循环，限制尝试次数
+    let maxAttempts = 2000;
+    while (results.length < count && maxAttempts > 0) {
+        maxAttempts--;
+        // 将 current 的秒和毫秒归零
+        current.setSeconds(0, 0);
+        // 检查是否匹配
+        let matches = true;
+        matches = matches && matchField(current.getMinutes(), minute);
+        matches = matches && matchField(current.getHours(), hour);
+        matches = matches && matchField(current.getDate(), day);
+        matches = matches && matchField(current.getMonth() + 1, month);
+        const dowVal = current.getDay(); // 0=周日
+        matches = matches && matchField(dowVal, dow);
+        if (matches) {
+            // 只有时间大于当前时间（或等于当前时间但已过，这里我们要求大于当前）
+            if (current.getTime() > now.getTime()) {
+                results.push(new Date(current));
+            }
+            // 增加一分钟继续寻找
+            current.setMinutes(current.getMinutes() + 1);
+        } else {
+            current.setMinutes(current.getMinutes() + 1);
+        }
+    }
+    // 如果尝试次数耗尽了还没找到，说明表达式可能不匹配（比如指定了不存在的日期）
+    return results;
+}
+
+// 辅助匹配函数：处理 * 数字 范围 逗号 斜杠（这里只支持 * 和数字）
+function matchField(value, pattern) {
+    if (pattern === '*') return true;
+    // 尝试直接数字匹配
+    if (pattern === String(value)) return true;
+    // 简单处理逗号分隔
+    if (pattern.includes(',')) {
+        const parts = pattern.split(',').map(Number);
+        return parts.includes(value);
+    }
+    // 处理范围 1-5
+    if (pattern.includes('-')) {
+        const [start, end] = pattern.split('-').map(Number);
+        return value >= start && value <= end;
+    }
+    // 处理步长 */5 这里简化只支持 */数字（每N个）
+    if (pattern.startsWith('*/')) {
+        const step = parseInt(pattern.substring(2));
+        if (isNaN(step) || step <= 0) return false;
+        // 对于分钟/小时等，从0开始，但匹配时 value 与步长取模
+        // 注意：对于月份和星期，从1开始，但这里统一用 value 与 step 取模（虽然不完美，但够用）
+        return (value % step) === 0;
+    }
+    return false;
+}
+
+// 生成人类可读的 cron 描述（增强版）
+function getCronDescription(fields) {
+    const [m, h, day, mon, dow] = fields;
+    // 预定义中文
+    const weekNames = ['日','一','二','三','四','五','六'];
+    let parts = [];
+    if (m === '*' && h === '*' && day === '*' && mon === '*' && dow === '*') return '每分钟执行';
+    if (m === '0' && h === '*' && day === '*' && mon === '*' && dow === '*') return '每小时的整点执行';
+    if (m === '0' && h !== '*' && !h.includes(',') && !h.includes('-') && !h.includes('/') && day === '*' && mon === '*' && dow === '*') {
+        return `每天 ${h.padStart(2,'0')}:00 执行`;
+    }
+    // 星期匹配
+    let weekStr = '';
+    if (dow !== '*') {
+        if (dow.includes(',')) {
+            const days = dow.split(',').map(d => weekNames[Number(d)] || d);
+            weekStr = `每周 ${days.join('、')}`;
+        } else if (dow.includes('-')) {
+            const [s, e] = dow.split('-').map(Number);
+            const days = [];
+            for (let i=s; i<=e; i++) days.push(weekNames[i]);
+            weekStr = `每周 ${days.join('、')}`;
+        } else if (!isNaN(dow) && dow >= 0 && dow <= 6) {
+            weekStr = `每周 ${weekNames[Number(dow)]}`;
+        } else {
+            weekStr = `星期 ${dow}`;
+        }
+    }
+    let dayStr = (day === '*') ? '' : `每月 ${day} 日`;
+    if (dayStr && weekStr) dayStr += ' ';
+    let timeStr = '';
+    if (m === '*' && h === '*') timeStr = '';
+    else if (m === '*' && h !== '*') timeStr = `${h.padStart(2,'0')} 点`;
+    else if (m !== '*' && h === '*') timeStr = `每小时的第 ${m} 分`;
+    else timeStr = `${h.padStart(2,'0')}:${m.padStart(2,'0')}`;
+    // 组合
+    let desc = '';
+    if (weekStr) desc += weekStr + ' ';
+    if (dayStr) desc += dayStr + ' ';
+    if (timeStr) desc += timeStr;
+    else desc += '执行';
+    return desc.trim() || '自定义表达式';
+}
+
+// 验证与预览
+document.getElementById('cronValidateBtn').addEventListener('click', function() {
+    const expr = document.getElementById('cronInput').value.trim();
+    if (!expr) {
+        document.getElementById('cronDescription').textContent = '请输入 Cron 表达式';
+        document.querySelector('#cronFutureList ul').innerHTML = '<li>—</li>';
+        return;
+    }
+    const parsed = parseCron(expr);
+    if (!parsed.valid) {
+        document.getElementById('cronDescription').textContent = '❌ ' + parsed.msg;
+        document.querySelector('#cronFutureList ul').innerHTML = '<li>表达式无效，无法预览</li>';
+        return;
+    }
+    // 显示描述
+    const desc = getCronDescription(parsed.fields);
+    document.getElementById('cronDescription').innerHTML = `✅ ${desc}`;
+    // 计算未来执行时间
+    const futureTimes = getNextCronTimes(parsed.fields, 5);
+    const ul = document.querySelector('#cronFutureList ul');
+    ul.innerHTML = '';
+    if (futureTimes.length === 0) {
+        ul.innerHTML = '<li>⚠️ 未找到未来的执行时间（可能表达式过于复杂或当前时间后无匹配）</li>';
+    } else {
+        futureTimes.forEach(d => {
+            const li = document.createElement('li');
+            li.textContent = d.toLocaleString('zh-CN', { hour12: false });
+            ul.appendChild(li);
+        });
+    }
+});
+
+// 示例填充
+document.getElementById('cronExampleBtn').addEventListener('click', function() {
+    const examples = [
+        '0 2 * * *',   // 每天2点
+        '30 14 * * *', // 每天14:30
+        '0 9-17 * * 1-5', // 工作日9-17点每小时
+        '*/15 * * * *', // 每15分钟
+        '0 0 1 * *'    // 每月1号0点
+    ];
+    const current = document.getElementById('cronInput').value;
+    let idx = examples.indexOf(current);
+    idx = (idx + 1) % examples.length;
+    document.getElementById('cronInput').value = examples[idx];
+    // 自动触发验证
+    document.getElementById('cronValidateBtn').click();
+});
+
+// 初始化时自动验证一次
+window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('cronValidateBtn').click();
+});
+</script>
+</body>
+</html>
