@@ -32,8 +32,7 @@
       "url": "https://devtools.toolara.dev/",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Any (browser-based)",
-      "inLanguage": "zh-CN",
-      "description": "免费在线开发者工具箱：Unix 时间戳与日期时间互转、Cron 表达式验证与下次执行时间预览。",
+      "inLanguage": "zh-CN",      "description": "免费在线开发者工具箱：Unix 时间戳与日期时间互转、Cron 表达式验证与下次执行时间预览。",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "isPartOf": { "@type": "WebSite", "name": "toolara.dev", "url": "https://toolara.dev/" }
     }
@@ -373,6 +372,66 @@ body { display: block; padding: 0; }
         </div>
     </div>
 </div>
+
+<div class="seo-content">
+    <h2>Unix 时间戳是什么？为什么要转换？</h2>
+    <p>Unix 时间戳是从 1970 年 1 月 1 日 00:00:00 UTC 开始计数的秒数，是程序里表示"一个绝对时刻"的标准方式。数据库、日志、API 返回的时间字段几乎都是时间戳，但它对人不可读，所以需要转换成日期时间来核对。</p>
+    <p>最常见的坑是<b>单位混用</b>：10 位数字是<b>秒</b>，13 位数字是<b>毫秒</b>。如果拿 13 位的毫秒值当秒去转，结果会落在公元 5 万年；反过来拿 10 位秒值当毫秒，结果会落在 1970 年。本工具两种单位都支持，选错时结果会明显异常，可以据此发现单位问题。</p>
+    <p>另一个常见问题是<b>时区</b>：同一个时间戳，上海（UTC+8）和纽约（UTC-5）显示的"日期时间"不同，但它们是同一时刻。本工具按你浏览器所在的本地时区显示，如果你在核对服务器日志，请确认服务器时区和你的时区是否一致。</p>
+
+    <h2>Cron 表达式怎么写？五个字段分别是什么？</h2>
+    <p>标准 Cron 表达式由 5 个字段组成，从左到右依次是：</p>
+    <table>
+        <tr><th>字段</th><th>取值范围</th><th>示例</th></tr>
+        <tr><td>分</td><td>0–59</td><td><code>0</code> = 第 0 分</td></tr>
+        <tr><td>时</td><td>0–23</td><td><code>2</code> = 凌晨 2 点</td></tr>
+        <tr><td>日</td><td>1–31</td><td><code>1</code> = 每月 1 号</td></tr>
+        <tr><td>月</td><td>1–12</td><td><code>*</code> = 每月</td></tr>
+        <tr><td>周</td><td>0–7（0 和 7 都是周日）</td><td><code>1-5</code> = 周一至周五</td></tr>
+    </table>
+    <p>常用示例：<code>0 2 * * *</code> = 每天凌晨 2 点；<code>*/15 * * * *</code> = 每 15 分钟一次；<code>0 9-17 * * 1-5</code> = 工作日 9 点到 17 点整点各执行一次。在上方输入表达式点「验证」，可以看到中文解析结果和未来 5 次执行时间，用来确认调度配置是否符合预期。</p>
+
+    <h2>常见问题</h2>
+    <p><b>问：转换结果和服务器日志里的时间差了几个小时？</b><br>答：多半是时区不一致。时间戳本身没有时区，显示结果取决于按哪个时区渲染。本工具按浏览器本地时区显示，请先确认服务器日志使用的时区。</p>
+    <p><b>问：为什么 13 位时间戳转出来是 1970 年？</b><br>答：单位选错了。13 位是毫秒、10 位是秒，切换右上角的单位选项即可。</p>
+    <p><b>问：我的 Cron 为什么没有按时执行？</b><br>答：先用「验证 &amp; 预览」看未来 5 次执行时间是否符合预期。常见原因包括：把 5 字段表达式写成了 6 字段（多了秒位）、日和周同时限定（标准 Cron 里两者同时非 <code>*</code> 时是"或"的关系）、以及服务器时区与你预期不符。</p>
+</div>
+
+<style>
+.seo-content { margin: 3.5rem auto 0; max-width: 760px; color: #334155; font-size: 0.95rem; line-height: 1.85; }
+.seo-content h2 { font-size: 1.15rem; color: #0f172a; margin: 2.2rem 0 0.8rem; }
+.seo-content h2:first-child { margin-top: 0; }
+.seo-content p { margin: 0 0 0.9rem; }
+.seo-content table { width: 100%; border-collapse: collapse; margin: 0.6rem 0 1rem; font-size: 0.9rem; }
+.seo-content th, .seo-content td { border: 1px solid #e2e8f0; padding: 7px 12px; text-align: left; }
+.seo-content th { background: #f1f5f9; color: #0f172a; }
+.seo-content code { background: #f1f5f9; border-radius: 4px; padding: 1px 6px; font-size: 0.88em; color: #1d4ed8; }
+.seo-content b { color: #0f172a; }
+@media (max-width: 760px) { .seo-content table { font-size: 0.82rem; } .seo-content th, .seo-content td { padding: 5px 8px; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "转换结果和服务器日志里的时间差了几个小时？",
+      "acceptedAnswer": { "@type": "Answer", "text": "多半是时区不一致。Unix 时间戳本身没有时区，显示结果取决于按哪个时区渲染。本工具按浏览器本地时区显示，请先确认服务器日志使用的时区。" }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么 13 位时间戳转出来是 1970 年？",
+      "acceptedAnswer": { "@type": "Answer", "text": "单位选错了。10 位数字是秒，13 位数字是毫秒，切换工具的单位选项后重新转换即可。" }
+    },
+    {
+      "@type": "Question",
+      "name": "Cron 表达式为什么没有按时执行？",
+      "acceptedAnswer": { "@type": "Answer", "text": "先用验证功能查看未来 5 次执行时间。常见原因：把 5 字段表达式写成了 6 字段（多了秒位）、日和周同时限定（标准 Cron 中两者同时非星号时是或关系）、服务器时区与预期不符。" }
+    }
+  ]
+}
+</script>
 
 <script>
 // ======================= 选项卡切换 =======================
