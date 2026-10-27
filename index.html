@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,185 +39,7 @@
       "isPartOf": { "@type": "WebSite", "name": "toolara.dev", "url": "https://toolara.dev/" }
     }
     </script>
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-        }
-        body {
-            background: #f5f7fb;
-            display: flex;
-            justify-content: center;
-            padding: 2rem 1rem;
-        }
-        .container {
-            max-width: 900px;
-            width: 100%;
-            background: white;
-            border-radius: 24px;
-            padding: 2rem 2rem 2.5rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        }
-        h1 {
-            margin-top: 0;
-            font-weight: 600;
-            font-size: 1.8rem;
-            color: #1e293b;
-            border-bottom: 2px solid #e9edf4;
-            padding-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin: 1.5rem 0 2rem;
-            border-bottom: 2px solid #e9edf4;
-            padding-bottom: 0.5rem;
-        }
-        .tab-btn {
-            padding: 0.6rem 1.5rem;
-            border: none;
-            background: transparent;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #64748b;
-            cursor: pointer;
-            border-radius: 40px;
-            transition: all 0.2s;
-        }
-        .tab-btn:hover {
-            background: #f1f5f9;
-        }
-        .tab-btn.active {
-            background: #1e293b;
-            color: white;
-        }
-        .tab-content {
-            display: none;
-            animation: fade 0.2s ease;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        @keyframes fade { from { opacity:0.4; } to { opacity:1; } }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-            align-items: center;
-        }
-        .row label {
-            min-width: 80px;
-            font-weight: 500;
-            color: #334155;
-        }
-        .row input, .row select {
-            flex: 1;
-            min-width: 180px;
-            padding: 0.6rem 0.8rem;
-            border: 1px solid #d1d9e6;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            background: white;
-            transition: 0.2s;
-        }
-        .row input:focus, .row select:focus {
-            outline: none;
-            border-color: #1e293b;
-            box-shadow: 0 0 0 3px rgba(30,41,59,0.1);
-        }
-        .btn {
-            background: #1e293b;
-            color: white;
-            border: none;
-            padding: 0.6rem 1.4rem;
-            border-radius: 40px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.95rem;
-            white-space: nowrap;
-        }
-        .btn:hover {
-            background: #0f172a;
-            transform: scale(0.97);
-        }
-        .btn-outline {
-            background: transparent;
-            color: #1e293b;
-            border: 1px solid #d1d9e6;
-        }
-        .btn-outline:hover {
-            background: #f1f5f9;
-        }
-        .result-box {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1rem 1.4rem;
-            margin-top: 1rem;
-            border-left: 4px solid #1e293b;
-            font-family: 'JetBrains Mono', monospace;
-            word-break: break-all;
-            min-height: 3rem;
-        }
-        .result-box .label {
-            font-family: system-ui;
-            font-weight: 500;
-            color: #475569;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .result-box .value {
-            font-size: 1.1rem;
-            margin-top: 4px;
-        }
-        .cron-preview {
-            background: #f1f5f9;
-            border-radius: 12px;
-            padding: 0.8rem 1.2rem;
-            margin-top: 0.8rem;
-        }
-        .cron-preview ul {
-            margin: 0.5rem 0 0;
-            padding-left: 1.2rem;
-        }
-        .cron-preview li {
-            padding: 0.2rem 0;
-            font-family: monospace;
-        }
-        .badge {
-            display: inline-block;
-            background: #dbeafe;
-            color: #1e3a8a;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .error {
-            color: #b91c1c;
-            background: #fee2e2;
-            padding: 0.4rem 1rem;
-            border-radius: 8px;
-            margin-top: 0.5rem;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        @media (max-width: 600px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .row { flex-direction: column; align-items: stretch; }
-            .row label { min-width: auto; }
-        }
-
-</style>
+    
 <style>
 /* Toolara site navigation */
 .site-header { position: relative; z-index: 10; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border, #e2e8f0); }
@@ -297,473 +121,417 @@ body { display: block; padding: 0; }
 .site-footer .fa-contact{margin-top:18px}.site-footer .fa-contact-h{margin:42px 0 10px !important;color:#f8fafc;font-size:0.95rem;font-weight:650}
 @media(max-width:960px){.site-footer-grid{grid-template-columns:1fr 1fr !important;gap:32px !important}}
 @media(max-width:640px){.site-footer-grid{grid-template-columns:1fr !important;gap:26px !important}}
-</style></head>
+</style><style>
+:root{
+  --brand:#2563eb;
+  --violet:#7c3aed;
+  --green:#059669;
+  --amber:#d97706;
+  --slate:#475569;
+  --red:#d92d20;
+  --text:#171e2b;
+  --text-2:#5b6472;
+  --text-3:#98a1b0;
+  --line:#e7e9ef;
+  --line-2:#dcdfe6;
+  --panel:#fff;
+  --bg:#f4f5f8;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,"Courier New",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--text);
+  font:14px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:none;color:var(--brand)}
+
+/* ===== header ===== */
+.hdr{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.hdr::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;
+  background:linear-gradient(90deg,#2563eb,#7c3aed 40%,#059669 75%,#d97706);
+  opacity:.85;
+}
+.hdr .w{max-width:1160px;margin:0 auto;padding:22px 20px;display:flex;align-items:center;gap:14px}
+.logo{
+  width:42px;height:42px;border-radius:11px;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:#fff;font:700 13px/42px var(--mono);text-align:center;flex:0 0 42px;
+  box-shadow:0 4px 12px rgba(66,77,231,.35);
+}
+.hdr h1{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.3}
+.hdr h1 .grad{
+  background:linear-gradient(120deg,#2563eb,#7c3aed);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hdr .sub{font-size:12.5px;color:var(--text-2);margin-top:2px}
+.hdr .clock{
+  margin-left:auto;font:12px/1.5 var(--mono);color:var(--text-2);
+  background:#f4f6fa;border:1px solid var(--line);border-radius:999px;
+  padding:6px 14px;text-align:right;white-space:nowrap;
+}
+.hdr .clock b{color:var(--brand);font-weight:600;cursor:pointer}
+.hdr .clock b:hover{text-decoration:underline}
+
+/* ===== layout ===== */
+.w{max-width:1160px;margin:0 auto;padding:26px 20px 80px;display:grid;grid-template-columns:1fr;gap:30px;align-items:start}
+.side{position:sticky;top:18px}
+.side .cap{font-size:11px;font-weight:700;color:var(--text-3);letter-spacing:.12em;margin-bottom:10px;text-transform:uppercase}
+.side ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.side li a{
+  display:flex;align-items:center;gap:9px;padding:9px 13px;font-size:13px;color:var(--text-2);
+  background:var(--panel);border:1px solid var(--line);border-radius:9px;
+  transition:.15s;font-weight:500;
+}
+.side li a:hover{border-color:var(--line-2);color:var(--text);transform:translateX(2px)}
+.side li a .dot{width:8px;height:8px;border-radius:3px;flex:0 0 8px;background:var(--dc,#94a3b8)}
+.side li:nth-child(1) a .dot{background:#2563eb}
+.side li:nth-child(2) a .dot{background:#7c3aed}
+.side li:nth-child(3) a .dot{background:#059669}
+.side li:nth-child(4) a .dot{background:#d97706}
+.side li:nth-child(5) a .dot{background:#475569}
+.side li:nth-child(6) a .dot{background:#475569}
+.side li a.on{
+  color:var(--text);font-weight:700;border-color:transparent;
+  box-shadow:0 2px 8px rgba(17,24,39,.1);
+}
+.side li a.on::after{content:"";margin-left:auto;width:5px;height:5px;border-radius:50%;background:var(--brand)}
+.side .tip{
+  margin-top:16px;padding:11px 13px;font-size:12px;color:#3f6212;line-height:1.65;
+  background:#f7fee7;border:1px solid #e3efc7;border-radius:9px;
+}
+
+main{min-width:0}
+
+/* ===== panels: color-coded sections ===== */
+section.panel,div.panel{
+  --ac:#475569;
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  margin-bottom:26px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(17,24,39,.04),0 3px 12px rgba(17,24,39,.04);
+}
+#ts{--ac:#2563eb}
+#rev{--ac:#7c3aed}
+#cron{--ac:#059669}
+#doc{--ac:#d97706}
+#tsdoc{--ac:#475569}
+#faq{--ac:#475569}
+.panel-hd{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 20px;border-bottom:1px solid var(--line);
+}
+.panel-hd .no{
+  font:800 24px/1 var(--mono);color:var(--ac);opacity:.25;letter-spacing:-.04em;
+}
+.panel-hd h2{font-size:15.5px;font-weight:700;letter-spacing:-.01em}
+.panel-hd .r{margin-left:auto;font-size:12px;color:var(--text-3)}
+.panel-bd{padding:20px 22px}
+
+/* forms */
+.frow{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.frow label.fl{width:76px;flex:0 0 76px;font-weight:600;font-size:13.5px;text-align:right;color:var(--text-2)}
+input[type=text],input[type=datetime-local]{
+  flex:1;min-width:0;padding:8px 12px;border:1px solid var(--line-2);border-radius:8px;
+  font:13.5px var(--mono);color:var(--text);background:#fff;outline:none;
+  transition:border-color .15s, box-shadow .15s;
+}
+input[type=text]:focus,input[type=datetime-local]:focus{
+  border-color:var(--ac,var(--brand));
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--ac,var(--brand)) 15%, transparent);
+}
+input.big{font-size:17px;padding:10px 14px;letter-spacing:.02em}
+input::placeholder{color:#b3bac4}
+
+/* segmented radios */
+.radios{display:flex;gap:3px;background:#eef0f4;border-radius:9px;padding:3px}
+.radios button{
+  border:0;background:transparent;padding:6px 13px;font-size:12.5px;color:var(--text-2);
+  cursor:pointer;font-family:inherit;font-weight:600;border-radius:7px;transition:.15s;white-space:nowrap;
+}
+.radios button:hover{color:var(--text)}
+.radios button.on{background:#fff;color:var(--ac,var(--brand));box-shadow:0 1px 3px rgba(17,24,39,.14)}
+
+/* buttons */
+.btn{
+  display:inline-block;border:0;border-radius:8px;cursor:pointer;
+  padding:8px 17px;font-size:13.5px;font-family:inherit;font-weight:600;transition:.15s;
+}
+.btn-pri{background:var(--ac,var(--brand));color:#fff;box-shadow:0 2px 6px color-mix(in srgb,var(--ac,var(--brand)) 35%, transparent)}
+.btn-pri:hover{filter:brightness(.92)}
+.btn-def{background:#fff;border:1px solid var(--line-2);color:var(--text-2)}
+.btn-def:hover{color:var(--ac,var(--brand));border-color:var(--ac,var(--brand))}
+
+/* result */
+.result{
+  border:1px solid color-mix(in srgb,var(--ac) 25%, #fff);
+  background:color-mix(in srgb,var(--ac) 4%, #fff);
+  border-radius:10px;padding:14px 18px;margin-top:4px;
+}
+.result .cap{font-size:12px;color:var(--text-2);margin-bottom:6px;display:flex;justify-content:space-between;align-items:baseline}
+.result .main{font:600 16px/1.55 var(--mono);color:var(--text);word-break:break-all;cursor:pointer}
+.result .main .wd{font:400 12px var(--sans);color:var(--text-2);margin-left:8px}
+.result .main:hover{text-decoration:underline dotted}
+.kv{margin-top:12px;border-top:1px dashed color-mix(in srgb,var(--ac) 30%, #fff)}
+.kv .row{display:flex;padding:7px 0;border-bottom:1px dashed color-mix(in srgb,var(--ac) 16%, #fff);font-size:13px;cursor:pointer}
+.kv .row:last-child{border-bottom:0}
+.kv .row:hover .v{color:var(--ac)}
+.kv .k{width:90px;flex:0 0 90px;color:var(--text-2)}
+.kv .v{font-family:var(--mono);word-break:break-all;transition:.12s}
+.flash{color:var(--green);font-size:11.5px;margin-left:8px;font-family:var(--sans);font-weight:700}
+
+.alert{border-radius:9px;padding:10px 15px;font-size:13px;margin-top:4px}
+.alert-ok{background:#ecfdf5;border:1px solid #bbe7d4;color:#047857}
+.alert-bad{background:#fef3f2;border:1px solid #f5c6c2;color:var(--red)}
+
+/* cron fields line */
+.fline{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font:13px var(--mono)}
+.fline .f{color:var(--text-2)}
+.fline .f b{color:var(--text);font-weight:600}
+.fline .f.star{opacity:.5}
+
+/* next runs list */
+ol.runs{margin:8px 0 0;padding-left:22px;font:13.5px/2 var(--mono)}
+ol.runs li{color:var(--text-2);list-style-type:decimal}
+ol.runs li:first-child{color:var(--text);font-weight:600}
+ol.runs .rel{
+  font:11.5px var(--sans);color:var(--text-2);font-weight:400;
+  background:#f1f3f7;border-radius:999px;padding:1px 9px;margin-left:8px;
+}
+ol.runs li:first-child .rel{background:color-mix(in srgb,var(--ac) 14%, #fff);color:var(--ac);font-weight:600}
+
+/* code block */
+pre.code{
+  background:#1b2230;color:#a8b3c4;border-radius:10px;padding:18px 20px;
+  font:12.5px/1.75 var(--mono);overflow-x:auto;margin:12px 0;
+}
+pre.code .c{color:#5c6b82}
+pre.code .g{color:#7ee2a8}
+pre.code .y{color:#f5d47a}
+
+/* tables */
+table.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;margin:10px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tbl th{background:color-mix(in srgb,var(--ac) 7%, #fff);text-align:left;font-weight:700;padding:9px 14px;border-bottom:1px solid var(--line);color:var(--text)}
+.tbl td{padding:9px 14px;border-bottom:1px solid var(--line);color:var(--text-2)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tr:nth-child(even) td{background:#fafbfd}
+.tbl code{font:12.5px var(--mono);background:#eef1f5;border-radius:4px;padding:1px 5px;color:#9a4d1f}
+
+/* docs */
+.doc h3{font-size:14.5px;font-weight:700;margin:22px 0 8px;display:flex;align-items:center;gap:8px}
+.doc h3::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--ac)}
+.doc p{color:#3d4553;margin-bottom:10px}
+.doc strong{color:var(--text)}
+.examples-wrap{display:flex;flex-wrap:wrap;gap:9px}
+.eg{
+  border:1px solid var(--line-2);border-radius:9px;background:#fff;padding:9px 13px;
+  cursor:pointer;transition:.15s;font-family:var(--mono);font-size:12.5px;
+}
+.eg:hover{border-color:var(--ac);box-shadow:0 3px 10px color-mix(in srgb,var(--ac) 18%, transparent);transform:translateY(-1px)}
+.eg code{color:var(--text);font-weight:700}
+.eg span{display:block;font:11.5px var(--sans);color:var(--text-2);margin-top:2px}
+
+/* faq */
+.faq h3{font-size:13.5px;font-weight:700;margin:18px 0 6px}
+.faq p{color:#3d4553;font-size:13.5px}
+
+/* footer */
+.foot{border-top:1px solid var(--line);background:#fff}
+.foot .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:18px 20px;font-size:12px;color:var(--text-3)}
+
+@media (max-width:900px){
+  .w{grid-template-columns:1fr}
+  .side{position:static;display:none}
+}
+
+
+/* ===== tabs ===== */
+.tabs{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
+.tab{
+  display:inline-flex;align-items:center;gap:9px;padding:11px 24px;
+  font-size:14.5px;font-weight:700;font-family:inherit;color:var(--text-2);
+  background:var(--panel);border:1px solid var(--line);border-radius:11px;
+  cursor:pointer;transition:.18s;
+}
+.tab:hover{color:var(--text);border-color:var(--line-2)}
+.tab .dot{width:9px;height:9px;border-radius:3px;background:var(--tc,#94a3b8);transition:.18s}
+.tab[data-pane="ts"]{--tc:#2563eb}
+.tab[data-pane="cron"]{--tc:#059669}
+.tab.on{color:#fff;border-color:transparent;box-shadow:0 3px 12px rgba(17,24,39,.2)}
+.tab[data-pane="ts"].on{background:linear-gradient(135deg,#2563eb,#3b82f6)}
+.tab[data-pane="cron"].on{background:linear-gradient(135deg,#059669,#10b981)}
+.tab.on .dot{background:rgba(255,255,255,.92)}
+.pane{display:none}
+.pane.on{display:block;animation:paneIn .25s ease}
+@keyframes paneIn{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+
+.page-main{max-width:1160px;margin:0 auto;padding:26px 20px 80px}
+</style>
+
+</head>
 <body>
 <header class="site-header"><div class="site-header-inner"><a class="site-brand" href="/" aria-label="Code Tools"><span class="site-brand-mark" aria-hidden="true">&lt;/&gt;</span><span class="site-brand-name">Code Tools</span></a><nav class="site-nav" aria-label="Site navigation"></nav></div></header>
 
-<div class="container">
-    <h1>🧰 开发者工具箱</h1>
+<header class="hdr">
+  <div class="w">
+    <div class="logo">&lt;/&gt;</div>
+    <div>
+      <h1>开发者<span class="grad">工具箱</span></h1>
+      <div class="sub">Unix 时间戳转换 · Cron 表达式解析 — 输入即出结果，无需点击按钮</div>
+    </div>
+    <div class="clock">now <b id="nowTs">–</b><br><span id="nowLocal">–</span></div>
+  </div>
+</header>
 
-    <!-- 选项卡 -->
-    <div class="tabs">
-        <button class="tab-btn active" data-tab="date">📅 日期转换</button>
-        <button class="tab-btn" data-tab="cron">⏳ Cron 验证 & 预览</button>
+<div class="page-main">
+<main>
+
+    <div class="tabs" id="mainTabs">
+      <button class="tab on" data-pane="ts"><span class="dot"></span>时间戳转换</button>
+      <button class="tab" data-pane="cron"><span class="dot"></span>Cron 表达式</button>
     </div>
 
-    <!-- ===================== 日期转换 ===================== -->
-    <div id="tab-date" class="tab-content active">
-        <div class="grid-2">
-            <!-- 左：时间戳 → 日期 -->
-            <div>
-                <div class="row">
-                    <label>时间戳</label>
-                    <input type="text" id="tsInput" placeholder="秒 或 毫秒" value="1693488000">
-                </div>
-                <div class="row">
-                    <label>单位</label>
-                    <select id="tsUnit">
-                        <option value="seconds">秒 (10位)</option>
-                        <option value="milliseconds">毫秒 (13位)</option>
-                    </select>
-                </div>
-                <button class="btn" id="tsToDateBtn">→ 转为日期</button>
-                <div class="result-box" id="tsResult">
-                    <div class="label">转换结果</div>
-                    <div class="value">等待转换</div>
-                </div>
-            </div>
-
-            <!-- 右：日期 → 时间戳 -->
-            <div>
-                <div class="row">
-                    <label>日期时间</label>
-                    <input type="text" id="dateInput" placeholder="YYYY-MM-DD HH:mm:ss" value="2026-09-07 14:30:00">
-                </div>
-                <button class="btn" id="dateToTsBtn">→ 转为时间戳</button>
-                <div class="result-box" id="dateResult">
-                    <div class="label">转换结果</div>
-                    <div class="value">等待转换</div>
-                </div>
-            </div>
+    <div class="pane on" id="pane-ts">
+<section class="panel" id="ts">
+      <div class="panel-hd"><span class="no">01</span><h2>Unix 时间戳 → 日期时间</h2><span class="r">十位 = 秒 · 十三位 = 毫秒，自动识别</span></div>
+      <div class="panel-bd">
+        <div class="frow">
+          <label class="fl">时间戳</label>
+          <input type="text" class="big" id="tsIn" placeholder="例如 1769545800 或 1769545800000" autocomplete="off" spellcheck="false" inputmode="numeric">
+          <div class="radios" id="unitSeg">
+            <button class="on" data-u="auto">自动</button>
+            <button data-u="s">秒</button>
+            <button data-u="ms">毫秒</button>
+          </div>
         </div>
+        <div id="tsOut"></div>
+      </div>
+    </section>
 
-        <!-- 数字日期 ↔ 标准日期 -->
-        <hr style="margin: 2rem 0; border-color: #e9edf4;">
-        <div class="grid-2">
-            <div>
-                <div class="row">
-                    <label>数字日期</label>
-                    <input type="text" id="numDateInput" placeholder="如 20260907" value="20260907">
-                </div>
-                <button class="btn" id="numToDateBtn">→ 转标准日期</button>
-                <div class="result-box" id="numDateResult">
-                    <div class="label">标准日期</div>
-                    <div class="value">-</div>
-                </div>
-            </div>
-            <div>
-                <div class="row">
-                    <label>标准日期</label>
-                    <input type="text" id="stdDateInput" placeholder="如 2026-09-07" value="2026-09-07">
-                </div>
-                <button class="btn" id="dateToNumBtn">→ 转数字日期</button>
-                <div class="result-box" id="stdDateResult">
-                    <div class="label">数字日期</div>
-                    <div class="value">-</div>
-                </div>
-            </div>
+<section class="panel" id="rev">
+      <div class="panel-hd"><span class="no">02</span><h2>日期时间 → 时间戳</h2><span class="r">按浏览器本地时区换算</span></div>
+      <div class="panel-bd">
+        <div class="frow">
+          <label class="fl">日期时间</label>
+          <input type="datetime-local" id="dtIn" step="1">
         </div>
+        <div class="frow">
+          <label class="fl">数字日期</label>
+          <input type="text" id="numIn" placeholder="20261027 ⇄ 2026-10-27，两种格式双向识别" autocomplete="off" spellcheck="false" style="flex:1">
+        </div>
+        <div id="revOut"></div>
+      </div>
+    </section>
+
+<section class="panel" id="tsdoc">
+      <div class="panel-hd"><span class="no">03</span><h2>时间戳说明</h2></div>
+      <div class="panel-bd doc">
+        <p>Unix 时间戳是从 <strong>1970-01-01 00:00:00 UTC</strong> 起累计的秒数，程序里表示「绝对时刻」的通用方式。数据库、日志、接口返回的时间字段几乎都是它。</p>
+        <p>最常见的坑是<strong>单位混用</strong>：10 位是秒，13 位是毫秒。把 13 位当秒转，结果落在公元 5 万年；把 10 位当毫秒转，结果落在 1970 年。本工具按位数自动判断，也可手动锁定单位。</p>
+        <p>第二个坑是<strong>时区</strong>：同一个时间戳，上海（UTC+8）和纽约（UTC-5）显示的日期时间不同，但它们是同一时刻。本工具按浏览器本地时区渲染，核对服务器日志前请先确认时区一致。</p>
+      </div>
+    </section>
+
+<section class="panel" id="tsfaq">
+      <div class="panel-hd"><span class="no">04</span><h2>常见问题</h2><span class="r">时间戳相关</span></div>
+      <div class="panel-bd faq">
+<h3>转换结果和服务器日志差几个小时？</h3>
+        <p>时区不一致。时间戳本身不带时区，显示结果取决于按哪个时区渲染。本工具用浏览器本地时区，请先确认日志使用的时区。</p>
+<h3>13 位时间戳转出来是 1970 年？</h3>
+        <p>单位被锁定错了。点 01 区单位选择器切回「自动」。</p>
+      </div>
+    </section>
     </div>
 
-    <!-- ===================== Cron 验证 & 执行预览 ===================== -->
-    <div id="tab-cron" class="tab-content">
-        <div class="row">
-            <label>Cron 表达式</label>
-            <input type="text" id="cronInput" placeholder="分 时 日 月 周" value="30 14 * * *">
+    <div class="pane" id="pane-cron">
+<section class="panel" id="cron">
+      <div class="panel-hd"><span class="no">01</span><h2>Cron 表达式解析</h2><span class="r">支持 Linux / Spring / Quartz 三种语法</span></div>
+      <div class="panel-bd">
+        <div class="frow">
+          <label class="fl">类型</label>
+          <div class="radios" id="cronType">
+            <button class="on" data-t="linux">Linux（5 字段）</button>
+            <button data-t="spring">Java Spring（6 字段）</button>
+            <button data-t="quartz">Java Quartz（7 字段）</button>
+          </div>
         </div>
-        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-            <button class="btn" id="cronValidateBtn">✅ 验证 & 预览</button>
-            <button class="btn btn-outline" id="cronExampleBtn">📋 填充示例</button>
+        <div class="frow">
+          <label class="fl">表达式</label>
+          <input type="text" class="big" id="cronIn" placeholder="* * * * *" autocomplete="off" spellcheck="false" maxlength="80">
+          <button class="btn btn-def" id="cronEg">填充示例</button>
         </div>
-        <div id="cronResult">
-            <div class="result-box" style="border-left-color: #64748b;">
-                <div class="label">解析结果</div>
-                <div id="cronDescription" class="value" style="font-family: system-ui;">等待验证</div>
-            </div>
-            <div class="cron-preview" id="cronFutureList">
-                <strong>📅 未来 5 次执行时间</strong>
-                <ul><li>—</li></ul>
-            </div>
+        <div id="cronOut"></div>
+        <div style="margin-top:16px">
+          <div class="cap" style="font-size:12px;color:var(--text-2);margin-bottom:8px">常用示例 · 点击填入</div>
+          <div class="examples-wrap" id="egWrap">
+            <div class="eg" data-cron="*/5 * * * *"><code>*/5 * * * *</code><span>每 5 分钟</span></div>
+            <div class="eg" data-cron="0 2 * * *"><code>0 2 * * *</code><span>每天凌晨 2 点</span></div>
+            <div class="eg" data-cron="0 9-17 * * 1-5"><code>0 9-17 * * 1-5</code><span>工作日 9–17 点整</span></div>
+            <div class="eg" data-cron="30 8 1 * *"><code>30 8 1 * *</code><span>每月 1 号 08:30</span></div>
+            <div class="eg" data-cron="0 0 * * 0"><code>0 0 * * 0</code><span>每周日零点</span></div>
+          </div>
         </div>
-        <div style="margin-top: 1rem; font-size: 0.85rem; color: #64748b;">
-            ⚙️ 支持格式：分 时 日 月 周（星期 0-6 或 SUN-SAT，0 和 7 都代表周日）
-        </div>
+      </div>
+    </section>
+
+<section class="panel" id="doc">
+      <div class="panel-hd"><span class="no">02</span><h2>Cron 表达式手册</h2><span class="r">五个到七个空格分隔的字段，取决于实现</span></div>
+      <div class="panel-bd doc">
+        <pre class="code"><span class="c"># Linux 标准格式</span>
+ <span class="g">*</span>    <span class="g">*</span>    <span class="g">*</span>    <span class="g">*</span>    <span class="g">*</span>
+ -    -    -    -    -
+ |    |    |    |    |
+ |    |    |    |    +----- 星期几 (0 - 7) (周日 = 0 或 7) 或 SUN–SAT
+ |    |    |    +---------- 月份   (1 - 12) 或 JAN–DEC
+ |    |    +--------------- 日     (1 - 31)
+ |    +-------------------- 小时   (0 - 23)
+ +------------------------- 分钟   (0 - 59)
+
+<span class="c"># Spring / Quartz 在最前面多一个「秒」字段，Quartz 结尾可再加「年」</span>
+<span class="g">秒(0-59)  分(0-59)  时(0-23)  日(1-31)  月(1-12)  周  [年(1970-2099)]</span></pre>
+
+        <table class="tbl">
+          <thead><tr><th>字段</th><th>是否必填</th><th>允许值</th><th>允许特殊字符</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><td>秒</td><td>Spring/Quartz 必填</td><td>0–59</td><td><code>* , - /</code></td><td>Linux 标准实现不支持</td></tr>
+            <tr><td>分</td><td>是</td><td>0–59</td><td><code>* , - /</code></td><td></td></tr>
+            <tr><td>时</td><td>是</td><td>0–23</td><td><code>* , - /</code></td><td></td></tr>
+            <tr><td>日</td><td>是</td><td>1–31</td><td><code>* , - / ? L W</code></td><td><code>? L W</code> 部分实现支持</td></tr>
+            <tr><td>月</td><td>是</td><td>1–12 或 JAN–DEC</td><td><code>* , - /</code></td><td></td></tr>
+            <tr><td>周</td><td>是</td><td>0–7 或 SUN–SAT</td><td><code>* , - / ? L #</code></td><td>Linux/Spring：0 和 7 均为周日；Quartz：1–7 且 1 = 周日</td></tr>
+            <tr><td>年</td><td>否（仅 Quartz）</td><td>1970–2099</td><td><code>* , - /</code></td><td>留空表示每年</td></tr>
+          </tbody>
+        </table>
+
+        <h3>特殊字符</h3>
+        <p><strong>逗号 <code>,</code></strong> 分隔列表：<code>MON,WED,FRI</code> = 周一、周三、周五。</p>
+        <p><strong>连字符 <code>-</code></strong> 定义范围：<code>9-17</code> = 9 到 17 点，含首尾。</p>
+        <p><strong>斜杠 <code>/</code></strong> 步进：<code>*/5</code> = 每隔 5（注意是「能被 5 整除的分钟」，不是「之后 5 分钟」）；<code>10-30/5</code> 表示范围内每 5 步进一次。</p>
+        <p><strong>问号 <code>?</code></strong> 表示「不指定」。Quartz 中「日」和「周」<strong>必须一个为 <code>?</code></strong>，两者不能同时指定。</p>
+        <p><strong>L（Last）</strong> 在「日」中表示当月最后一天：<code>0 0 L * * ?</code> 每月最后一天零点。</p>
+        <p><strong>W</strong> 表示最接近指定日的工作日（周一至五）：<code>15W</code>，15 号是周六则提前到周五 14 号，是周日则顺延到周一 16 号。只能用于单一日期，不能是范围或列表。</p>
+        <p><strong>#</strong>（仅 Quartz 的周字段）：<code>6#3</code> = 每月第三个周五。</p>
+        <p><strong>注意</strong>：Linux 标准实现里「日」和「周」同时限定时是<strong>「或」</strong>关系，满足其一即执行——这是最容易踩的坑。</p>
+      </div>
+    </section>
+
+<section class="panel" id="cronfaq">
+      <div class="panel-hd"><span class="no">03</span><h2>常见问题</h2><span class="r">Cron 相关</span></div>
+      <div class="panel-bd faq">
+<h3>Cron 没有按时执行？</h3>
+        <p>先看 03 区下方连续 7 次执行时间是否符合预期。常见原因：字段数写错（Linux 5 个、Spring 6 个、Quartz 7 个）、日与周同时限定、Quartz 忘了把「日」或「周」其一写成 <code style="font:12.5px var(--mono);background:#eef1f4;padding:1px 5px;border-radius:3px">?</code>、服务器时区与预期不符。</p>
+      </div>
+    </section>
     </div>
+
+  </main>
 </div>
 
-<div class="seo-content">
-    <h2>Unix 时间戳是什么？为什么要转换？</h2>
-    <p>Unix 时间戳是从 1970 年 1 月 1 日 00:00:00 UTC 开始计数的秒数，是程序里表示"一个绝对时刻"的标准方式。数据库、日志、API 返回的时间字段几乎都是时间戳，但它对人不可读，所以需要转换成日期时间来核对。</p>
-    <p>最常见的坑是<b>单位混用</b>：10 位数字是<b>秒</b>，13 位数字是<b>毫秒</b>。如果拿 13 位的毫秒值当秒去转，结果会落在公元 5 万年；反过来拿 10 位秒值当毫秒，结果会落在 1970 年。本工具两种单位都支持，选错时结果会明显异常，可以据此发现单位问题。</p>
-    <p>另一个常见问题是<b>时区</b>：同一个时间戳，上海（UTC+8）和纽约（UTC-5）显示的"日期时间"不同，但它们是同一时刻。本工具按你浏览器所在的本地时区显示，如果你在核对服务器日志，请确认服务器时区和你的时区是否一致。</p>
-
-    <h2>Cron 表达式怎么写？五个字段分别是什么？</h2>
-    <p>标准 Cron 表达式由 5 个字段组成，从左到右依次是：</p>
-    <table>
-        <tr><th>字段</th><th>取值范围</th><th>示例</th></tr>
-        <tr><td>分</td><td>0–59</td><td><code>0</code> = 第 0 分</td></tr>
-        <tr><td>时</td><td>0–23</td><td><code>2</code> = 凌晨 2 点</td></tr>
-        <tr><td>日</td><td>1–31</td><td><code>1</code> = 每月 1 号</td></tr>
-        <tr><td>月</td><td>1–12</td><td><code>*</code> = 每月</td></tr>
-        <tr><td>周</td><td>0–7（0 和 7 都是周日）</td><td><code>1-5</code> = 周一至周五</td></tr>
-    </table>
-    <p>常用示例：<code>0 2 * * *</code> = 每天凌晨 2 点；<code>*/15 * * * *</code> = 每 15 分钟一次；<code>0 9-17 * * 1-5</code> = 工作日 9 点到 17 点整点各执行一次。在上方输入表达式点「验证」，可以看到中文解析结果和未来 5 次执行时间，用来确认调度配置是否符合预期。</p>
-
-    <h2>常见问题</h2>
-    <p><b>问：转换结果和服务器日志里的时间差了几个小时？</b><br>答：多半是时区不一致。时间戳本身没有时区，显示结果取决于按哪个时区渲染。本工具按浏览器本地时区显示，请先确认服务器日志使用的时区。</p>
-    <p><b>问：为什么 13 位时间戳转出来是 1970 年？</b><br>答：单位选错了。13 位是毫秒、10 位是秒，切换右上角的单位选项即可。</p>
-    <p><b>问：我的 Cron 为什么没有按时执行？</b><br>答：先用「验证 &amp; 预览」看未来 5 次执行时间是否符合预期。常见原因包括：把 5 字段表达式写成了 6 字段（多了秒位）、日和周同时限定（标准 Cron 里两者同时非 <code>*</code> 时是"或"的关系）、以及服务器时区与你预期不符。</p>
-</div>
-
-<style>
-.seo-content { margin: 3.5rem auto 0; max-width: 760px; color: #334155; font-size: 0.95rem; line-height: 1.85; }
-.seo-content h2 { font-size: 1.15rem; color: #0f172a; margin: 2.2rem 0 0.8rem; }
-.seo-content h2:first-child { margin-top: 0; }
-.seo-content p { margin: 0 0 0.9rem; }
-.seo-content table { width: 100%; border-collapse: collapse; margin: 0.6rem 0 1rem; font-size: 0.9rem; }
-.seo-content th, .seo-content td { border: 1px solid #e2e8f0; padding: 7px 12px; text-align: left; }
-.seo-content th { background: #f1f5f9; color: #0f172a; }
-.seo-content code { background: #f1f5f9; border-radius: 4px; padding: 1px 6px; font-size: 0.88em; color: #1d4ed8; }
-.seo-content b { color: #0f172a; }
-@media (max-width: 760px) { .seo-content table { font-size: 0.82rem; } .seo-content th, .seo-content td { padding: 5px 8px; } }
-</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "转换结果和服务器日志里的时间差了几个小时？",
-      "acceptedAnswer": { "@type": "Answer", "text": "多半是时区不一致。Unix 时间戳本身没有时区，显示结果取决于按哪个时区渲染。本工具按浏览器本地时区显示，请先确认服务器日志使用的时区。" }
-    },
-    {
-      "@type": "Question",
-      "name": "为什么 13 位时间戳转出来是 1970 年？",
-      "acceptedAnswer": { "@type": "Answer", "text": "单位选错了。10 位数字是秒，13 位数字是毫秒，切换工具的单位选项后重新转换即可。" }
-    },
-    {
-      "@type": "Question",
-      "name": "Cron 表达式为什么没有按时执行？",
-      "acceptedAnswer": { "@type": "Answer", "text": "先用验证功能查看未来 5 次执行时间。常见原因：把 5 字段表达式写成了 6 字段（多了秒位）、日和周同时限定（标准 Cron 中两者同时非星号时是或关系）、服务器时区与预期不符。" }
-    }
-  ]
-}
-</script>
-
-<script>
-// ======================= 选项卡切换 =======================
-document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const target = this.dataset.tab;
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        document.getElementById('tab-' + target).classList.add('active');
-    });
-});
-
-// ======================= 日期转换模块 =======================
-// 时间戳 → 日期
-document.getElementById('tsToDateBtn').addEventListener('click', function() {
-    const input = document.getElementById('tsInput').value.trim();
-    const unit = document.getElementById('tsUnit').value;
-    if (!input) {
-        document.getElementById('tsResult').querySelector('.value').textContent = '请输入时间戳';
-        return;
-    }
-    let ts = Number(input);
-    if (isNaN(ts)) {
-        document.getElementById('tsResult').querySelector('.value').textContent = '❌ 无效数字';
-        return;
-    }
-    if (unit === 'seconds') ts = ts * 1000;
-    const date = new Date(ts);
-    if (isNaN(date.getTime())) {
-        document.getElementById('tsResult').querySelector('.value').textContent = '❌ 超出合法范围';
-        return;
-    }
-    const fmt = date.toLocaleString('zh-CN', { hour12: false });
-    document.getElementById('tsResult').querySelector('.value').textContent = fmt + ' (本地时间)';
-});
-
-// 日期 → 时间戳
-document.getElementById('dateToTsBtn').addEventListener('click', function() {
-    const input = document.getElementById('dateInput').value.trim();
-    if (!input) {
-        document.getElementById('dateResult').querySelector('.value').textContent = '请输入日期时间';
-        return;
-    }
-    let d = new Date(input);
-    if (isNaN(d.getTime())) {
-        // 尝试自动补全秒
-        if (!input.includes(':')) {
-            d = new Date(input + ' 00:00:00');
-        } else if (input.split(':').length === 2) {
-            d = new Date(input + ':00');
-        }
-    }
-    if (isNaN(d.getTime())) {
-        document.getElementById('dateResult').querySelector('.value').textContent = '❌ 无法解析，格式示例: 2026-09-07 14:30:00';
-        return;
-    }
-    const ms = d.getTime();
-    const sec = Math.floor(ms / 1000);
-    document.getElementById('dateResult').querySelector('.value').textContent = `秒: ${sec}  |  毫秒: ${ms}`;
-});
-
-// 数字日期 → 标准日期
-document.getElementById('numToDateBtn').addEventListener('click', function() {
-    const input = document.getElementById('numDateInput').value.trim();
-    if (!/^\d{8}$/.test(input)) {
-        document.getElementById('numDateResult').querySelector('.value').textContent = '❌ 请输入8位数字，如 20260907';
-        return;
-    }
-    const y = input.substring(0,4), m = input.substring(4,6), d = input.substring(6,8);
-    const date = new Date(`${y}-${m}-${d}`);
-    if (isNaN(date.getTime())) {
-        document.getElementById('numDateResult').querySelector('.value').textContent = '❌ 无效日期';
-        return;
-    }
-    document.getElementById('numDateResult').querySelector('.value').textContent = `${y}-${m}-${d}`;
-});
-
-// 标准日期 → 数字日期
-document.getElementById('dateToNumBtn').addEventListener('click', function() {
-    const input = document.getElementById('stdDateInput').value.trim();
-    const d = new Date(input);
-    if (isNaN(d.getTime())) {
-        document.getElementById('stdDateResult').querySelector('.value').textContent = '❌ 无效日期，请用 YYYY-MM-DD';
-        return;
-    }
-    const y = d.getFullYear();
-    const m = String(d.getMonth()+1).padStart(2,'0');
-    const day = String(d.getDate()).padStart(2,'0');
-    document.getElementById('stdDateResult').querySelector('.value').textContent = `${y}${m}${day}`;
-});
-
-// ======================= Cron 验证与预览模块 =======================
-// 简单的 cron 解析器（仅支持 5 段：分 时 日 月 周）
-function parseCron(expr) {
-    const parts = expr.trim().split(/\s+/);
-    if (parts.length !== 5) {
-        return { valid: false, msg: '必须为 5 段（分 时 日 月 周）' };
-    }
-    const fields = parts.map(p => p.trim());
-    // 星期 0-6 或 SUN-SAT，我们统一转为 0-6 (0=周日)
-    // 先简单校验每个字段是否合法（允许 * 和数字/逗号/斜杠等）
-    const patterns = [
-        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*)$/, // 分
-        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*)$/, // 时
-        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*)$/, // 日
-        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*)$/, // 月
-        /^(\*|\d+|\d+-\d+|\*\/\d+|\d+(,\d+)*|SUN|MON|TUE|WED|THU|FRI|SAT)$/i // 周
-    ];
-    for (let i = 0; i < 5; i++) {
-        if (!patterns[i].test(fields[i])) {
-            return { valid: false, msg: `第 ${i+1} 段 "${fields[i]}" 不合法` };
-        }
-    }
-    // 尝试将星期中的英文转为数字
-    const weekMap = { sun:0, mon:1, tue:2, wed:3, thu:4, fri:5, sat:6 };
-    let weekPart = fields[4];
-    if (/[A-Z]/i.test(weekPart)) {
-        // 简单处理：如果整个字段是英文缩写
-        const lower = weekPart.toLowerCase();
-        if (weekMap.hasOwnProperty(lower)) {
-            weekPart = String(weekMap[lower]);
-        } else {
-            return { valid: false, msg: '不支持的星期缩写，请使用 0-6 或 SUN-SAT' };
-        }
-    }
-    // 重新组合
-    const cleaned = [fields[0], fields[1], fields[2], fields[3], weekPart];
-    // 生成可读描述（简易）
-    let desc = '';
-    const m = cleaned[0], h = cleaned[1], day = cleaned[2], mon = cleaned[3], dow = cleaned[4];
-    if (m === '*' && h === '*' && day === '*' && mon === '*' && dow === '*') desc = '每分钟执行';
-    else if (m === '0' && h === '*' && day === '*' && mon === '*' && dow === '*') desc = '每小时的 0 分执行';
-    else if (m === '0' && h !== '*' && !h.includes(',') && !h.includes('-') && !h.includes('/') && day === '*' && mon === '*' && dow === '*') {
-        desc = `每天 ${h.padStart(2,'0')}:00 执行`;
-    } else if (m !== '*' && h !== '*' && day === '*' && mon === '*' && dow === '*') {
-        desc = `每天 ${h.padStart(2,'0')}:${m.padStart(2,'0')} 执行`;
-    } else if (m === '0' && h === '0' && day === '*' && mon === '*' && dow === '*') {
-        desc = '每天 00:00 执行';
-    } else {
-        desc = `自定义表达式 (${expr})`;
-    }
-    return { valid: true, fields: cleaned, description: desc };
-}
-
-// 计算未来 N 次执行时间（基于当前本地时间）
-function getNextCronTimes(cronFields, count = 5) {
-    const [minute, hour, day, month, dow] = cronFields;
-    const now = new Date();
-    const results = [];
-    let current = new Date(now);
-    // 为了防止死循环，限制尝试次数
-    let maxAttempts = 2000;
-    while (results.length < count && maxAttempts > 0) {
-        maxAttempts--;
-        // 将 current 的秒和毫秒归零
-        current.setSeconds(0, 0);
-        // 检查是否匹配
-        let matches = true;
-        matches = matches && matchField(current.getMinutes(), minute);
-        matches = matches && matchField(current.getHours(), hour);
-        matches = matches && matchField(current.getDate(), day);
-        matches = matches && matchField(current.getMonth() + 1, month);
-        const dowVal = current.getDay(); // 0=周日
-        matches = matches && matchField(dowVal, dow);
-        if (matches) {
-            // 只有时间大于当前时间（或等于当前时间但已过，这里我们要求大于当前）
-            if (current.getTime() > now.getTime()) {
-                results.push(new Date(current));
-            }
-            // 增加一分钟继续寻找
-            current.setMinutes(current.getMinutes() + 1);
-        } else {
-            current.setMinutes(current.getMinutes() + 1);
-        }
-    }
-    // 如果尝试次数耗尽了还没找到，说明表达式可能不匹配（比如指定了不存在的日期）
-    return results;
-}
-
-// 辅助匹配函数：处理 * 数字 范围 逗号 斜杠（这里只支持 * 和数字）
-function matchField(value, pattern) {
-    if (pattern === '*') return true;
-    // 尝试直接数字匹配
-    if (pattern === String(value)) return true;
-    // 简单处理逗号分隔
-    if (pattern.includes(',')) {
-        const parts = pattern.split(',').map(Number);
-        return parts.includes(value);
-    }
-    // 处理范围 1-5
-    if (pattern.includes('-')) {
-        const [start, end] = pattern.split('-').map(Number);
-        return value >= start && value <= end;
-    }
-    // 处理步长 */5 这里简化只支持 */数字（每N个）
-    if (pattern.startsWith('*/')) {
-        const step = parseInt(pattern.substring(2));
-        if (isNaN(step) || step <= 0) return false;
-        // 对于分钟/小时等，从0开始，但匹配时 value 与步长取模
-        // 注意：对于月份和星期，从1开始，但这里统一用 value 与 step 取模（虽然不完美，但够用）
-        return (value % step) === 0;
-    }
-    return false;
-}
-
-// 生成人类可读的 cron 描述（增强版）
-function getCronDescription(fields) {
-    const [m, h, day, mon, dow] = fields;
-    // 预定义中文
-    const weekNames = ['日','一','二','三','四','五','六'];
-    let parts = [];
-    if (m === '*' && h === '*' && day === '*' && mon === '*' && dow === '*') return '每分钟执行';
-    if (m === '0' && h === '*' && day === '*' && mon === '*' && dow === '*') return '每小时的整点执行';
-    if (m === '0' && h !== '*' && !h.includes(',') && !h.includes('-') && !h.includes('/') && day === '*' && mon === '*' && dow === '*') {
-        return `每天 ${h.padStart(2,'0')}:00 执行`;
-    }
-    // 星期匹配
-    let weekStr = '';
-    if (dow !== '*') {
-        if (dow.includes(',')) {
-            const days = dow.split(',').map(d => weekNames[Number(d)] || d);
-            weekStr = `每周 ${days.join('、')}`;
-        } else if (dow.includes('-')) {
-            const [s, e] = dow.split('-').map(Number);
-            const days = [];
-            for (let i=s; i<=e; i++) days.push(weekNames[i]);
-            weekStr = `每周 ${days.join('、')}`;
-        } else if (!isNaN(dow) && dow >= 0 && dow <= 6) {
-            weekStr = `每周 ${weekNames[Number(dow)]}`;
-        } else {
-            weekStr = `星期 ${dow}`;
-        }
-    }
-    let dayStr = (day === '*') ? '' : `每月 ${day} 日`;
-    if (dayStr && weekStr) dayStr += ' ';
-    let timeStr = '';
-    if (m === '*' && h === '*') timeStr = '';
-    else if (m === '*' && h !== '*') timeStr = `${h.padStart(2,'0')} 点`;
-    else if (m !== '*' && h === '*') timeStr = `每小时的第 ${m} 分`;
-    else timeStr = `${h.padStart(2,'0')}:${m.padStart(2,'0')}`;
-    // 组合
-    let desc = '';
-    if (weekStr) desc += weekStr + ' ';
-    if (dayStr) desc += dayStr + ' ';
-    if (timeStr) desc += timeStr;
-    else desc += '执行';
-    return desc.trim() || '自定义表达式';
-}
-
-// 验证与预览
-document.getElementById('cronValidateBtn').addEventListener('click', function() {
-    const expr = document.getElementById('cronInput').value.trim();
-    if (!expr) {
-        document.getElementById('cronDescription').textContent = '请输入 Cron 表达式';
-        document.querySelector('#cronFutureList ul').innerHTML = '<li>—</li>';
-        return;
-    }
-    const parsed = parseCron(expr);
-    if (!parsed.valid) {
-        document.getElementById('cronDescription').textContent = '❌ ' + parsed.msg;
-        document.querySelector('#cronFutureList ul').innerHTML = '<li>表达式无效，无法预览</li>';
-        return;
-    }
-    // 显示描述
-    const desc = getCronDescription(parsed.fields);
-    document.getElementById('cronDescription').innerHTML = `✅ ${desc}`;
-    // 计算未来执行时间
-    const futureTimes = getNextCronTimes(parsed.fields, 5);
-    const ul = document.querySelector('#cronFutureList ul');
-    ul.innerHTML = '';
-    if (futureTimes.length === 0) {
-        ul.innerHTML = '<li>⚠️ 未找到未来的执行时间（可能表达式过于复杂或当前时间后无匹配）</li>';
-    } else {
-        futureTimes.forEach(d => {
-            const li = document.createElement('li');
-            li.textContent = d.toLocaleString('zh-CN', { hour12: false });
-            ul.appendChild(li);
-        });
-    }
-});
-
-// 示例填充
-document.getElementById('cronExampleBtn').addEventListener('click', function() {
-    const examples = [
-        '0 2 * * *',   // 每天2点
-        '30 14 * * *', // 每天14:30
-        '0 9-17 * * 1-5', // 工作日9-17点每小时
-        '*/15 * * * *', // 每15分钟
-        '0 0 1 * *'    // 每月1号0点
-    ];
-    const current = document.getElementById('cronInput').value;
-    let idx = examples.indexOf(current);
-    idx = (idx + 1) % examples.length;
-    document.getElementById('cronInput').value = examples[idx];
-    // 自动触发验证
-    document.getElementById('cronValidateBtn').click();
-});
-
-// 初始化时自动验证一次
-window.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('cronValidateBtn').click();
-});
-</script>
 <footer class="site-footer">
 <div class="site-footer-inner">
 <div class="site-footer-grid"><section class="site-footer-column">
@@ -774,5 +542,403 @@ window.addEventListener('DOMContentLoaded', function() {
 <div class="site-footer-bottom"><p class="site-footer-privacy">A collection of date, Cron, and developer utilities.</p></div>
 </div>
 </footer>
+
+<script>
+
+const $ = id => document.getElementById(id);
+const p2 = n => String(n).padStart(2,'0');
+const WD = '日一二三四五六';
+const fmt = d => `${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())} ${p2(d.getHours())}:${p2(d.getMinutes())}:${p2(d.getSeconds())}`;
+
+function copy(text, el){
+  if(!text) return;
+  const done = () => {
+    if(!el) return;
+    const t = document.createElement('span');
+    t.className = 'flash'; t.textContent = '✓ 已复制';
+    el.appendChild(t); setTimeout(()=>t.remove(), 900);
+  };
+  if(navigator.clipboard) navigator.clipboard.writeText(text).then(done).catch(done);
+  else { const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');}catch(e){} ta.remove(); done(); }
+}
+
+/* ---- live clock ---- */
+(function tick(){
+  const d = new Date();
+  $('nowTs').textContent = Math.floor(d.getTime()/1000);
+  $('nowLocal').textContent = `UTC ${p2(d.getUTCHours())}:${p2(d.getUTCMinutes())}:${p2(d.getUTCSeconds())}`;
+  setTimeout(tick, 1000);
+})();
+$('nowTs').addEventListener('click', () => copy($('nowTs').textContent));
+
+/* ---- generic radio group ---- */
+function radioGroup(id, cb){
+  $(id).addEventListener('click', e => {
+    const b = e.target.closest('button'); if(!b) return;
+    $(id).querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); cb(b.dataset.u || b.dataset.t);
+  });
+}
+
+/* ================= 01 timestamp ================= */
+let unit = 'auto';
+radioGroup('unitSeg', u => { unit = u; renderTs(); });
+
+function relText(ms){
+  const diff = ms - Date.now(), a = Math.abs(diff);
+  const n = a < 6e4 ? Math.round(a/1e3)+' 秒' : a < 36e5 ? Math.round(a/6e4)+' 分钟'
+    : a < 864e5 ? Math.round(a/36e5)+' 小时' : Math.round(a/864e5)+' 天';
+  return diff === 0 ? '此刻' : (diff > 0 ? n+'后' : n+'前');
+}
+function resultBox(mainHtml, mainCopy, rows){
+  const box = document.createElement('div');
+  box.className = 'result';
+  box.innerHTML = `<div class="cap"><span>转换结果 · 点击行复制</span></div>
+    <div class="main">${mainHtml}</div><div class="kv"></div>`;
+  const mainEl = box.querySelector('.main');
+  mainEl.addEventListener('click', () => copy(mainCopy, mainEl));
+  const kv = box.querySelector('.kv');
+  rows.forEach(([k,v,c]) => {
+    const r = document.createElement('div');
+    r.className = 'row';
+    r.innerHTML = `<span class="k">${k}</span><span class="v">${v}</span>`;
+    r.addEventListener('click', () => copy(c, r.querySelector('.v')));
+    kv.appendChild(r);
+  });
+  return box;
+}
+
+function renderTs(){
+  const out = $('tsOut');
+  const raw = $('tsIn').value.trim();
+  out.innerHTML = '';
+  if(!raw){ out.innerHTML = '<div class="alert alert-ok">等待输入 — 支持秒（10 位）与毫秒（13 位）自动识别</div>'; return; }
+  if(!/^\d+$/.test(raw)){
+    out.innerHTML = '<div class="alert alert-bad">✗ 非法输入：只接受纯数字，粘贴的内容里混入了其他字符</div>'; return;
+  }
+  let u = unit === 'auto' ? (raw.length >= 12 ? 'ms' : 's') : unit;
+  const ms = u === 's' ? Number(raw) * 1000 : Number(raw);
+  const d = new Date(ms);
+  if(isNaN(d.getTime()) || Math.abs(ms) > 8.64e15){
+    out.innerHTML = '<div class="alert alert-bad">✗ 数值超出 Date 可表示范围（±8.64e15 毫秒）</div>'; return;
+  }
+  const how = unit === 'auto' ? `${raw.length} 位 → 自动按${u === 's' ? '秒' : '毫秒'}解析` : `手动锁定按${u === 's' ? '秒' : '毫秒'}解析`;
+  out.appendChild(resultBox(
+    `${fmt(d)}<span class="wd">周${WD[d.getDay()]} · ${relText(ms)}</span>`, fmt(d),
+    [
+      ['UTC', d.toISOString().replace('T',' ').replace('.000Z',''), d.toISOString()],
+      ['ISO 8601', d.toISOString(), d.toISOString()],
+      ['相对', relText(ms), relText(ms)],
+      ['秒级', String(Math.floor(ms/1000)), String(Math.floor(ms/1000))],
+      ['毫秒级', String(ms), String(ms)],
+      ["SQL", `'${fmt(d)}'`, fmt(d)],
+      ['解析方式', how, how],
+    ]
+  ));
+}
+$('tsIn').addEventListener('input', renderTs);
+$('tsIn').addEventListener('keydown', e => { if(e.key==='Escape'){ e.target.value=''; renderTs(); }});
+
+/* ================= 02 date -> ts ================= */
+function renderDt(){
+  const out = $('revOut');
+  const dv = $('dtIn').value, nv = $('numIn').value.trim();
+  out.innerHTML = '';
+  if(dv){
+    const d = new Date(dv);
+    if(!isNaN(d.getTime())){
+      out.appendChild(resultBox(
+        `${Math.floor(d.getTime()/1000)}<span class="wd">秒 · 毫秒 ${d.getTime()}</span>`,
+        String(Math.floor(d.getTime()/1000)),
+        [['毫秒级', String(d.getTime()), String(d.getTime())], ['ISO 8601', d.toISOString(), d.toISOString()]]
+      ));
+    }
+  }
+  if(nv){
+    let m = nv.match(/^(\d{4})(\d{2})(\d{2})$/);
+    if(m){
+      const d = new Date(+m[1], +m[2]-1, +m[3]);
+      if(d.getMonth() === +m[2]-1 && d.getDate() === +m[3]){
+        out.appendChild(resultBox(`${m[1]}-${m[2]}-${m[3]}<span class="wd">周${WD[d.getDay()]}</span>`, `${m[1]}-${m[2]}-${m[3]}`));
+      } else out.innerHTML += '<div class="alert alert-bad">✗ 该数字日期不存在</div>';
+    } else {
+      m = nv.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/);
+      if(m && +m[2]>=1 && +m[2]<=12 && +m[3]>=1 && +m[3]<=31){
+        out.appendChild(resultBox(`${m[1]}${p2(+m[2])}${p2(+m[3])}`, `${m[1]}${p2(+m[2])}${p2(+m[3])}`));
+      } else if(nv) out.innerHTML += '<div class="alert alert-bad">✗ 无法识别：需要 YYYYMMDD 或 YYYY-MM-DD</div>';
+    }
+  }
+  if(!dv && !nv) out.innerHTML = '<div class="alert alert-ok">选择日期或输入数字日期后即时显示</div>';
+}
+$('dtIn').addEventListener('input', renderDt);
+$('numIn').addEventListener('input', renderDt);
+
+/* ================= 03 cron ================= */
+let cronType = 'linux';
+radioGroup('cronType', t => { cronType = t; $('cronIn').placeholder = t==='linux' ? '* * * * *' : t==='spring' ? '0 */12 * * * *' : '0 0 18 L * ?'; renderCron(); });
+
+/* field config: name, range, allow names, allow ?, allow L/W/#, optional */
+const TYPES = {
+  linux:  { n:5, fields:['分','时','日','月','周'], ranges:[[0,59],[0,23],[1,31],[1,12],[0,7]] },
+  spring: { n:6, fields:['秒','分','时','日','月','周'], ranges:[[0,59],[0,59],[0,23],[1,31],[1,12],[0,7]] },
+  quartz: { n:7, fields:['秒','分','时','日','月','周','年'], ranges:[[0,59],[0,59],[0,23],[1,31],[1,12],[1,7],[1970,2099]] },
+};
+
+function parseField(str, idx, type){
+  /* returns {set:Set|spec} or throws Error(msg) */
+  const cfg = TYPES[type];
+  const name = cfg.fields[idx];
+  const [lo,hi] = cfg.ranges[idx];
+  const isDom = name === '日', isDow = name === '周', isYear = name === '年';
+  const wkNames = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  const moNames = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  const one = t => {
+    if((isDow||isYear) && /^[A-Za-z]{3}$/.test(t)){
+      const arr = isYear ? null : wkNames;
+      if(isYear) throw new Error(`「${name}」不接受英文缩写`);
+      const i = arr.indexOf(t.toUpperCase());
+      let v = i === -1 ? null : i;
+      if(v !== null && type === 'quartz') v = (v % 7) + 1 === 7 ? 1 : v; // no-op placeholder
+      return v;
+    }
+    if(!/^\d+$/.test(t)) throw new Error(`「${name}」字段出现非法字符「${t}」`);
+    let n = Number(t);
+    if(isDow){
+      if(type === 'quartz'){ if(n < 1 || n > 7) throw new Error(`Quartz 的「周」取值是 1–7（1 = 周日），收到 ${n}`); }
+      else { if(n === 7) n = 0; if(n > 7) throw new Error(`「周」取值 0–7（0 和 7 = 周日），收到 ${n}`); }
+    }
+    return n;
+  };
+  if(str === '?'){
+    if(!(isDom || isDow)) throw new Error(`「?」只能用于「日」或「周」字段，${name} 不行`);
+    return { any: true };
+  }
+  if(str === 'L' && isDom && (type === 'quartz' || type === 'spring')) return { L: true };
+  const spec = { any: false, set: new Set(), nth: null };
+  if(isDow && /^\d#[1-5]$/.test(str) && type === 'quartz'){ spec.nth = { w: one(str[0]), n: Number(str[2]) }; return spec; }
+  for(const part of str.split(',')){
+    let step = 1, base = part;
+    const si = part.indexOf('/');
+    if(si !== -1){ base = part.slice(0,si); step = Number(part.slice(si+1)); if(!Number.isInteger(step)||step<1) throw new Error(`「${name}」的步进值无效：/${part.slice(si+1)}`); }
+    let a,b;
+    if(base === '*'){ a = lo; b = hi; }
+    else if(base === 'L' && isDom) { spec.L = true; continue; }
+    else if(base.includes('-')){ const pp = base.split('-'); a = one(pp[0]); b = one(pp[1]); }
+    else { a = one(base); b = si !== -1 ? hi : a; }
+    if(a < lo || b > hi || a > b) throw new Error(`「${name}」越界：${base}（范围 ${lo}–${hi}）`);
+    for(let v = a; v <= b; v += step) spec.set.add(v);
+  }
+  return spec;
+}
+
+const lastDay = (y,m) => new Date(y, m+1, 0).getDate(); // m 0-based
+
+function nextRuns(type, specs, count){
+  /* specs: array aligned to fields; returns array of Date or throws */
+  const t = TYPES[type];
+  const off = type === 'linux' ? 0 : 1;         // index shift: linux starts at 分
+  const iSec = type === 'linux' ? -1 : 0;
+  const iMin = iSec + 1, iHr = iMin + 1, iDom = iHr + 1, iMon = iDom + 1, iDow = iMon + 1, iYear = type === 'quartz' ? iDow + 1 : -1;
+  const secs  = iSec >= 0 ? [...specs[iSec].set].sort((a,b)=>a-b) : [0];
+  const mins  = [...specs[iMin].set].sort((a,b)=>a-b);
+  const hrs   = [...specs[iHr].set].sort((a,b)=>a-b);
+  const dom   = specs[iDom], mon = specs[iMon], dow = specs[iDow];
+  const mons  = [...mon.set].sort((a,b)=>a-b);
+  const years = iYear >= 0 && specs[iYear] && !specs[iYear].any ? [...specs[iYear].set].sort((a,b)=>a-b) : null;
+  const domQ = !dom.any, dowQ = !dow.any;
+
+  if(type === 'quartz' && domQ && dowQ) throw new Error('Quartz 语法中「日」与「周」不能同时指定，必须把其中一个写成 ?');
+
+  const domL = !!dom.L, domNth = !!dow.nth;
+  const dayMatch = d => {
+    const y = d.getFullYear(), m0 = d.getMonth(), day = d.getDate(), w = d.getDay();
+    const dowNorm = type === 'quartz' ? (w === 0 ? 7 : w) : w; // quartz 1=Sun..7=Sat
+    let domOk = true, dowOk = true;
+    if(domQ && !domL) domOk = dom.set.has(day);
+    if(domL) domOk = day === lastDay(y, m0);
+    if(dowQ){
+      if(domNth) dowOk = dowNorm === dow.nth.w && Math.ceil(day/7) === dow.nth.n;
+      else dowOk = dow.set.has(dowNorm);
+    }
+    if(type === 'quartz') return domQ ? domOk : dowOk;
+    if(domQ && dowQ) return domOk || dowOk;   // linux/spring: OR
+    if(domQ) return domOk;
+    if(dowQ) return dowOk;
+    return true;
+  };
+
+  const out = [];
+  let cur = new Date();
+  cur.setMilliseconds(0);
+  cur = new Date(cur.getTime() + 1000);
+  const lim = new Date(cur.getTime() + 500*864e5);
+  while(out.length < count && cur < lim){
+    const y = cur.getFullYear();
+    if(years && !years.includes(y)){ cur = new Date(y+1, 0, 1, 0, 0, 0); continue; }
+    const m0 = cur.getMonth();
+    if(!mon.set.has(m0 + 1)){
+      cur = new Date(y, m0 + 1, 1, 0, 0, 0); continue;
+    }
+    if(!dayMatch(cur)){ cur = new Date(y, m0, cur.getDate() + 1, 0, 0, 0); continue; }
+    /* find next matching second within this day, >= cur */
+    let found = null;
+    const h0 = cur.getHours();
+    for(const h of hrs){
+      if(h < h0) continue;
+      const mLo = h === h0 ? cur.getMinutes() : 0;
+      for(const mi of mins){
+        if(mi < mLo) continue;
+        const sLo = (h === h0 && mi === cur.getMinutes()) ? cur.getSeconds() : 0;
+        for(const s of secs){
+          if(s < sLo) continue;
+          found = new Date(y, m0, cur.getDate(), h, mi, s);
+          break;
+        }
+        if(found) break;
+      }
+      if(found) break;
+    }
+    if(found){ out.push(found); cur = new Date(found.getTime() + 1000); }
+    else cur = new Date(y, m0, cur.getDate() + 1, 0, 0, 0);
+  }
+  return out;
+}
+
+function describe(type, parts, specs){
+  const t = TYPES[type];
+  const off = type === 'linux' ? 0 : 1;
+  const get = name => { const i = t.fields.indexOf(name); return specs[i]; };
+  /* compress consecutive numbers: [9..17] -> "9-17" */
+  const fmtList = vals => {
+    if(!vals || !vals.length) return '';
+    const runs = [];
+    let s = vals[0], prev = vals[0];
+    for(let i = 1; i <= vals.length; i++){
+      const v = vals[i];
+      if(v === prev + 1){ prev = v; continue; }
+      runs.push(s === prev ? String(s) : (prev - s > 1 ? `${s}-${prev}` : `${s}、${prev}`));
+      s = v; prev = v;
+    }
+    return runs.join('、');
+  };
+  const seg = [];
+  const sec = get('秒');
+  if(sec) seg.push(sec.any || sec.set.size === 60 ? '每秒' : `第 ${fmtList([...sec.set])} 秒`);
+  const mi = get('分');  seg.push(mi.any || mi.set.size === 60 ? '每分钟' : `第 ${fmtList([...mi.set])} 分`);
+  const hr = get('时');  if(!(hr.any || hr.set.size === 24)) seg.push(`${fmtList([...hr.set])} 点`);
+  const mo = get('月');  if(!(mo.any || mo.set.size === 12)) seg.push(`${fmtList([...mo.set])} 月`);
+  const dom = get('日');
+  if(dom.L) seg.push('当月最后一天');
+  else if(!dom.any && dom.set && dom.set.size < 31) seg.push(`${fmtList([...dom.set])} 号`);
+  const dow = get('周');
+  if(dow.nth) seg.push(`每月第 ${dow.nth.n} 个星期${'日一二三四五六'[(dow.nth.w === 7 ? 0 : dow.nth.w)]}`);
+  else if(!dow.any && dow.set && dow.set.size < 7){
+    const norm = v => type === 'quartz' ? v % 7 : v; // quartz 7→0
+    seg.push([...dow.set].map(v => '周' + WD[norm(v)]).join('、'));
+  }
+  const yr = get('年');
+  if(yr && !yr.any) seg.push(`${fmtList([...yr.set])} 年`);
+  let s = seg.filter(Boolean).join('，');
+  if(type !== 'quartz' && !dom.any && !dow.any && dom.set && dow.set) s += '（日与周同时限定 = 或）';
+  return s;
+}
+
+function renderCron(){
+  const out = $('cronOut');
+  const raw = $('cronIn').value.trim();
+  out.innerHTML = '';
+  if(!raw){
+    out.innerHTML = `<div class="alert alert-ok">等待输入 — ${TYPES[cronType].n} 字段：${TYPES[cronType].fields.join(' · ')}</div>`;
+    return;
+  }
+  const parts = raw.split(/\s+/);
+  const cfg = TYPES[cronType];
+  try {
+    /* quartz 年字段可选：6 或 7 个字段都合法 */
+    const nOk = parts.length === cfg.n || (cronType === 'quartz' && parts.length === 6);
+    if(!nOk)
+      throw new Error(cronType === 'quartz'
+        ? `字段数错误：Quartz 为 6 个字段（省略年）或 7 个字段（含年），当前 ${parts.length} 个`
+        : `字段数错误：需要 ${cfg.n} 个字段（${cfg.fields.join(' ')}），当前 ${parts.length} 个`);
+    let specs = parts.map((p,i) => parseField(p, i, cronType));
+    if(cronType === 'quartz' && parts.length === 6) specs = specs.concat([{ any: true }]);
+    const desc = describe(cronType, parts, specs);
+    const list = nextRuns(cronType, specs, 7);
+    const box = document.createElement('div');
+    box.className = 'result';
+    box.innerHTML = `<div class="cap"><span>表达式解释</span></div><div class="main" style="font-family:var(--sans);font-weight:500">${desc}</div>
+      <div class="kv" style="margin-top:10px"><div style="padding:10px 0 4px;font-size:12.5px;color:var(--text-2)">接下来 ${list.length} 次执行时间：</div></div>`;
+    const ol = document.createElement('ol');
+    ol.className = 'runs'; ol.style.marginLeft = '0'; ol.style.paddingLeft = '20px';
+    list.forEach((d,i) => {
+      const li = document.createElement('li');
+      const diffMin = Math.round((d - Date.now())/60000);
+      const rel = diffMin < 60 ? diffMin+' 分钟后' : diffMin < 1440 ? Math.round(diffMin/60)+' 小时后' : Math.round(diffMin/1440)+' 天后';
+      li.innerHTML = `${fmt(d)}<span class="rel">${i === 0 ? '最近 · ' : ''}${rel} · 周${WD[d.getDay()]}</span>`;
+      ol.appendChild(li);
+    });
+    box.querySelector('.kv').appendChild(ol);
+    out.appendChild(box);
+    /* field line */
+    const fl = document.createElement('div');
+    fl.className = 'fline';
+    parts.forEach((p,i) => {
+      const s = document.createElement('span');
+      s.className = 'f' + (p === '*' || p === '?' ? ' star' : '');
+      s.innerHTML = `<b>${cfg.fields[i]}</b> ${p}`;
+      fl.appendChild(s);
+    });
+    out.appendChild(fl);
+  } catch(err){
+    out.innerHTML = `<div class="alert alert-bad">✗ ${err.message}</div>`;
+  }
+}
+$('cronIn').addEventListener('input', renderCron);
+$('cronIn').addEventListener('keydown', e => { if(e.key==='Escape'){ e.target.value=''; renderCron(); }});
+$('cronEg').addEventListener('click', () => {
+  $('cronIn').value = cronType === 'linux' ? '0 9-17 * * 1-5' : cronType === 'spring' ? '0 0 9-17 * * 1-5' : '0 0 9-17 ? * 2-6';
+  renderCron();
+});
+$('egWrap').addEventListener('click', e => {
+  const eg = e.target.closest('.eg'); if(!eg) return;
+  let c = eg.dataset.cron;
+  if(cronType === 'spring') c = '0 ' + c;                      // add seconds
+  if(cronType === 'quartz'){
+    const p = ('0 ' + c).split(/\s+/);                          // sec min hr dom mon dow
+    if(p[3] !== '*') p[4] = '?'; else p[3] = '?';
+    c = p.slice(0,6).join(' ');
+  }
+  $('cronIn').value = c;
+  renderCron();
+});
+
+renderTs(); renderDt(); renderCron();
+$('tsIn').focus();
+
+/* scrollspy: highlight sidebar entry of section in view */
+const navLinks = [...document.querySelectorAll('.side li a')];
+const linkMap = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+const spy = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('on'));
+      const a = linkMap.get(e.target.id);
+      if (a) a.classList.add('on');
+    }
+  });
+}, { rootMargin: '-15% 0px -70% 0px' });
+document.querySelectorAll('main section').forEach(s => spy.observe(s));
+
+/* ===== tabs ===== */
+function setPane(id){
+  document.querySelectorAll('.pane').forEach(el => el.classList.toggle('on', el.id === 'pane-' + id));
+  document.querySelectorAll('#mainTabs .tab').forEach(b => b.classList.toggle('on', b.dataset.pane === id));
+  if(location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
+}
+document.querySelectorAll('#mainTabs .tab').forEach(b => b.addEventListener('click', () => setPane(b.dataset.pane)));
+const startPane = location.hash.replace('#','');
+if(startPane === 'cron' || startPane === 'ts') setPane(startPane);
+
+</script>
 </body>
 </html>
