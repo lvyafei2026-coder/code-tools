@@ -42,7 +42,7 @@
     
 <style>
 /* Toolara site navigation */
-.site-header { position: relative; z-index: 10; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--border, #e2e8f0); }
+.site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid var(--border, #e2e8f0); }
 .site-header-inner { max-width: 1120px; min-height: 68px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .site-brand { min-width: 0; display: flex; align-items: center; gap: 10px; color: var(--text, #0f1c2e); text-decoration: none; font-weight: 700; }
 .site-brand-mark { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border-radius: 10px; background: var(--accent, #2563eb); color: #fff; font-size: 0.72rem; font-weight: 800; }
@@ -379,7 +379,6 @@ table.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;ma
 
 <header class="hdr">
   <div class="w">
-    <div class="logo">&lt;/&gt;</div>
     <div>
       <h1>开发者<span class="grad">工具箱</span></h1>
       <div class="sub">Unix 时间戳转换 · Cron 表达式解析 — 输入即出结果，无需点击按钮</div>
